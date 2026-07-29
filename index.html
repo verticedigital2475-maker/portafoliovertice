@@ -8,7 +8,6 @@
     <!-- ETIQUETAS PARA WHATSAPP (Open Graph) -->
     <meta property="og:title" content="📷 Portafolio de Fotografía y Video | Vértice Digital">
     <meta property="og:description" content="Conoce nuestro trabajo en Bodas, XV Años y Eventos Infantiles. Capturando tus mejores momentos.">
-    <meta property="og:image" content="banner-xv.jpg">
     <meta property="og:image" content="https://portafoliovertice.vercel.app/banner-xv.jpg">
     <meta property="og:url" content="https://portafoliovertice.vercel.app/">
 
@@ -36,8 +35,8 @@
             margin-bottom: 5px;
         }
 
-        /* Botón para mezclar */
-        #btn-mezclar {
+        /* Botones Mezclar y Slideshow */
+        #btn-mezclar, #btn-slideshow {
             background-color: #333;
             color: white;
             border: none;
@@ -45,11 +44,11 @@
             font-size: 14px;
             cursor: pointer;
             border-radius: 5px;
-            margin-bottom: 30px;
+            margin: 0 5px 30px 5px; /* Espacio entre los botones */
             transition: background 0.3s;
         }
 
-        #btn-mezclar:hover {
+        #btn-mezclar:hover, #btn-slideshow:hover {
             background-color: #555;
         }
 
@@ -61,31 +60,26 @@
             margin: 0 auto;
         }
 
+        /* Contenedor de cada foto */
         .item {
             break-inside: avoid;
             margin-bottom: 15px;
-            border-radius: 4px;
-            overflow: hidden;
+            border-radius: 4px; /* Opcional: le da un ligero redondeo a las esquinas */
+            overflow: hidden; /* ¡Clave! Evita que la foto se salga de su cuadro al hacer zoom */
             position: relative;
         }
 
+        /* La imagen en estado normal */
         .item img {
             width: 100%;
             display: block;
-            transition: transform 0.4s ease;
+            transition: transform 0.4s ease; /* Hace que el acercamiento sea suave y fluido */
         }
 
+        /* El efecto al pasar el mouse (Hover) en el grid */
         .item:hover img {
-            transform: scale(1.03);
+            transform: scale(1.05); /* Acercamiento sutil del 5% */
         }
-
-        <!-- Tu botón de Slideshow -->
-<button id="btn-slideshow" class="tu-clase-de-botones">Reproducir Slideshow</button>
-
-<!-- El reproductor de música oculto -->
-<audio id="musica-fondo" loop>
-  <source src="cancion-bodas.mp3" type="audio/mpeg">
-</audio>
 
         /* Ajuste para celulares y tablets */
         @media (max-width: 768px) {
@@ -96,65 +90,35 @@
 
         @media (max-width: 480px) {
             .gallery-pictime {
-                column-count: 1; /* Opciones: 1 o 2 columnas en móvil */
+                column-count: 1;
             }
         }
-/* Contenedor de cada foto */
-.item {
-  margin-bottom: 15px; 
-  break-inside: avoid; 
-  overflow: hidden; /* ¡Clave! Evita que la foto se salga de su cuadro al hacer zoom */
-  border-radius: 4px; /* Opcional: le da un ligero redondeo a las esquinas */
-}
 
-/* La imagen en estado normal */
-.item img {
-  width: 100%;
-  display: block;
-  transition: transform 0.4s ease; /* Hace que el acercamiento sea suave y fluido */
-}
+        /* ========================================================
+           EFECTOS KEN BURNS (Movimientos lentos al abrir la foto)
+           ======================================================== */
+        @keyframes slowZoomIn {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); } 
+        }
+        @keyframes slowZoomOut {
+            0% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        @keyframes panLeft {
+            0% { transform: scale(1.15) translateX(2%); }
+            100% { transform: scale(1.15) translateX(-2%); } 
+        }
+        @keyframes panRight {
+            0% { transform: scale(1.15) translateX(-2%); }
+            100% { transform: scale(1.15) translateX(2%); }
+        }
 
-/* El efecto al pasar el mouse (Hover) */
-.item:hover img {
-  transform: scale(1.05); /* Acercamiento sutil del 5%. Si lo quieres más intenso puedes usar 1.1 */
-}
-        /* 1. Definimos los movimientos lentos (Efecto Ken Burns) */
-@keyframes slowZoomIn {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.15); } /* Zoom discreto del 15% */
-}
-@keyframes slowZoomOut {
-  0% { transform: scale(1.15); }
-  100% { transform: scale(1); }
-}
-@keyframes panLeft {
-  0% { transform: scale(1.15) translateX(2%); }
-  100% { transform: scale(1.15) translateX(-2%); } /* Paneo suave */
-}
-@keyframes panRight {
-  0% { transform: scale(1.15) translateX(-2%); }
-  100% { transform: scale(1.15) translateX(2%); }
-}
-
-/* 2. Aplicamos la animación SOLO a la foto abierta (.current) */
-/* Usamos nth-child para alternar el efecto en cada foto automáticamente */
-
-/* Foto 1, 5, 9... (Zoom In) */
-.gslide:nth-child(4n+1).current .gslide-image img {
-  animation: slowZoomIn 15s ease-in-out infinite alternate;
-}
-/* Foto 2, 6, 10... (Paneo Izquierda) */
-.gslide:nth-child(4n+2).current .gslide-image img {
-  animation: panLeft 15s ease-in-out infinite alternate;
-}
-/* Foto 3, 7, 11... (Zoom Out) */
-.gslide:nth-child(4n+3).current .gslide-image img {
-  animation: slowZoomOut 15s ease-in-out infinite alternate;
-}
-/* Foto 4, 8, 12... (Paneo Derecha) */
-.gslide:nth-child(4n+4).current .gslide-image img {
-  animation: panRight 15s ease-in-out infinite alternate;
-}
+        /* Aplicamos la animación SOLO a la foto abierta (.current) alternando efectos */
+        .gslide:nth-child(4n+1).current .gslide-image img { animation: slowZoomIn 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+2).current .gslide-image img { animation: panLeft 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+3).current .gslide-image img { animation: slowZoomOut 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+4).current .gslide-image img { animation: panRight 15s ease-in-out infinite alternate; }
     </style>
 </head>
 <body>
@@ -164,21 +128,28 @@
         <p>PORTAFOLIO GENERAL</p>
     </header>
 
-    <button id="btn-mezclar">Mezclar Fotos 🔀</button>
+    <!-- ZONA DE BOTONES Y MÚSICA (HTML correcto dentro del Body) -->
+    <div>
+        <button id="btn-mezclar">Mezclar Fotos 🔀</button>
+        <button id="btn-slideshow">Reproducir Slideshow 🎵</button>
+    </div>
 
-    <!-- CONTENEDOR DE LA GALERÍA CON LAS 30 FOTOS -->
+    <audio id="musica-fondo" loop>
+        <source src="cancion-bodas.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- CONTENEDOR DE LA GALERÍA -->
     <div class="gallery-pictime" id="galeria">
-        
         <div class="item"><a href="fotos/alta-resolucion/foto1.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto1.jpg" alt="Vértice Digital"></a></div>
         <div class="item"><a href="fotos/alta-resolucion/foto2.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto2.jpg" alt="Vértice Digital"></a></div>
-<!-- EJEMPLO 3: VIDEO DE YOUTUBE -->
+        
+        <!-- EJEMPLO 3: VIDEO DE YOUTUBE -->
         <div class="item">
-            <!-- Solo pones el link de YouTube en el href -->
             <a href="https://www.youtube.com/watch?v=OszOM3BektU" class="glightbox" data-gallery="portafolio">
-                <!-- Como miniatura, pones una foto de portada de tu video -->
                 <img src="fotos/miniaturas/portada-video.jpg" alt="Ver Video Cinematografía">
             </a>
         </div>
+        
         <div class="item"><a href="fotos/alta-resolucion/foto3.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto3.jpg" alt="Vértice Digital"></a></div>
         <div class="item"><a href="fotos/alta-resolucion/foto4.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto4.jpg" alt="Vértice Digital"></a></div>
         <div class="item"><a href="fotos/alta-resolucion/foto5.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto5.jpg" alt="Vértice Digital"></a></div>
@@ -207,7 +178,6 @@
         <div class="item"><a href="fotos/alta-resolucion/foto28.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto28.jpg" alt="Vértice Digital"></a></div>
         <div class="item"><a href="fotos/alta-resolucion/foto29.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto29.jpg" alt="Vértice Digital"></a></div>
         <div class="item"><a href="fotos/alta-resolucion/foto30.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto30.jpg" alt="Vértice Digital"></a></div>
-
     </div>
 
     <!-- LIBRERÍA GLIGHTBOX Y SCRIPTS -->
@@ -216,40 +186,38 @@
         // Activar el zoom y la galería
         const lightbox = GLightbox({
             selector: '.glightbox',
-            slideEffect: 'fade', // <-- Esto hace una transición suave cruzada
+            slideEffect: 'fade', // Hace una transición suave cruzada
             touchNavigation: true,
             loop: true
         });
 
-        // 1. Obtenemos el botón y la música
-const btnSlideshow = document.getElementById('btn-slideshow');
-const musicaFondo = document.getElementById('musica-fondo');
-let intervaloSlideshow;
+        // ==========================================
+        // LÓGICA DEL SLIDESHOW CON MÚSICA
+        // ==========================================
+        const btnSlideshow = document.getElementById('btn-slideshow');
+        const musicaFondo = document.getElementById('musica-fondo');
+        let intervaloSlideshow;
 
-// 2. ¿Qué pasa al hacer clic en el botón?
-btnSlideshow.addEventListener('click', () => {
-  // Reproducir la canción
-  musicaFondo.play();
-  
-  // Abrir la galería en la primera foto (índice 0)
-  lightbox.openAt(0);
+        btnSlideshow.addEventListener('click', () => {
+            musicaFondo.play(); // Reproducir la canción
+            lightbox.openAt(0); // Abrir la primera foto
 
-  // Cambiar a la siguiente foto cada 4 segundos (4000 milisegundos)
-  intervaloSlideshow = setInterval(() => {
-    lightbox.nextSlide();
-  }, 4000); 
-});
+            // Cambiar foto cada 4 segundos
+            intervaloSlideshow = setInterval(() => {
+                lightbox.nextSlide();
+            }, 4000); 
+        });
 
-// 3. ¿Qué pasa cuando el cliente cierra la foto (la X)?
-lightbox.on('close', () => {
-  // Pausar la música y reiniciarla al principio
-  musicaFondo.pause();
-  musicaFondo.currentTime = 0;
-  
-  // Detener el avance automático
-  clearInterval(intervaloSlideshow);
-});        
-        // Lógica del Botón Mezclar
+        // Detener música y slideshow al cerrar la foto
+        lightbox.on('close', () => {
+            musicaFondo.pause();
+            musicaFondo.currentTime = 0;
+            clearInterval(intervaloSlideshow);
+        });        
+
+        // ==========================================
+        // LÓGICA DEL BOTÓN MEZCLAR
+        // ==========================================
         document.getElementById('btn-mezclar').addEventListener('click', function() {
             const galeria = document.getElementById('galeria');
             const items = Array.from(galeria.querySelectorAll('.item'));
