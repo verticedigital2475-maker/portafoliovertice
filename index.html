@@ -79,6 +79,14 @@
             transform: scale(1.03);
         }
 
+        <!-- Tu botón de Slideshow -->
+<button id="btn-slideshow" class="tu-clase-de-botones">Reproducir Slideshow</button>
+
+<!-- El reproductor de música oculto -->
+<audio id="musica-fondo" loop>
+  <source src="cancion-bodas.mp3" type="audio/mpeg">
+</audio>
+
         /* Ajuste para celulares y tablets */
         @media (max-width: 768px) {
             .gallery-pictime {
@@ -208,10 +216,39 @@
         // Activar el zoom y la galería
         const lightbox = GLightbox({
             selector: '.glightbox',
+            slideEffect: 'fade', // <-- Esto hace una transición suave cruzada
             touchNavigation: true,
             loop: true
         });
 
+        // 1. Obtenemos el botón y la música
+const btnSlideshow = document.getElementById('btn-slideshow');
+const musicaFondo = document.getElementById('musica-fondo');
+let intervaloSlideshow;
+
+// 2. ¿Qué pasa al hacer clic en el botón?
+btnSlideshow.addEventListener('click', () => {
+  // Reproducir la canción
+  musicaFondo.play();
+  
+  // Abrir la galería en la primera foto (índice 0)
+  lightbox.openAt(0);
+
+  // Cambiar a la siguiente foto cada 4 segundos (4000 milisegundos)
+  intervaloSlideshow = setInterval(() => {
+    lightbox.nextSlide();
+  }, 4000); 
+});
+
+// 3. ¿Qué pasa cuando el cliente cierra la foto (la X)?
+lightbox.on('close', () => {
+  // Pausar la música y reiniciarla al principio
+  musicaFondo.pause();
+  musicaFondo.currentTime = 0;
+  
+  // Detener el avance automático
+  clearInterval(intervaloSlideshow);
+});        
         // Lógica del Botón Mezclar
         document.getElementById('btn-mezclar').addEventListener('click', function() {
             const galeria = document.getElementById('galeria');
