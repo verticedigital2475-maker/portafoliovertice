@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Fotográfico | Vértice Digital</title>
+
+    <!-- ETIQUETAS PARA WHATSAPP (Open Graph) -->
+    <meta property="og:title" content="📷 Portafolio de Fotografía y Video | Vértice Digital">
+    <meta property="og:description" content="Conoce nuestro trabajo en Bodas, XV Años y Eventos Infantiles. Capturando tus mejores momentos.">
+    <meta property="og:image" content="https://www.fotoyvideocorregidora.com.mx/assets/banner-general.jpg">
+    <meta property="og:url" content="https://www.fotoyvideocorregidora.com.mx/">
+
+    <!-- Librería GLightbox (Para el zoom) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <!-- ESTILOS CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        /* Botón para mezclar */
+        #btn-mezclar {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-bottom: 30px;
+            transition: background 0.3s;
+        }
+
+        #btn-mezclar:hover {
+            background-color: #555;
+        }
+
+        /* DISEÑO DE COLUMNAS ESTILO PICTIME */
+        .gallery-pictime {
+            column-count: 3;
+            column-gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .item:hover img {
+            transform: scale(1.03);
+        }
+
+        /* Ajuste para celulares y tablets */
+        @media (max-width: 768px) {
+            .gallery-pictime {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-pictime {
+                column-count: 1; /* Opciones: 1 o 2 columnas en móvil */
+            }
+        }
+/* Contenedor de cada foto */
+.item {
+  margin-bottom: 15px; 
+  break-inside: avoid; 
+  overflow: hidden; /* ¡Clave! Evita que la foto se salga de su cuadro al hacer zoom */
+  border-radius: 4px; /* Opcional: le da un ligero redondeo a las esquinas */
+}
+
+/* La imagen en estado normal */
+.item img {
+  width: 100%;
+  display: block;
+  transition: transform 0.4s ease; /* Hace que el acercamiento sea suave y fluido */
+}
+
+/* El efecto al pasar el mouse (Hover) */
+.item:hover img {
+  transform: scale(1.05); /* Acercamiento sutil del 5%. Si lo quieres más intenso puedes usar 1.1 */
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>FOTOS Vértice Digital</h1>
+        <p>PORTAFOLIO GENERAL</p>
+    </header>
+
+    <button id="btn-mezclar">Mezclar Fotos 🔀</button>
+
+    <!-- CONTENEDOR DE LA GALERÍA CON LAS 30 FOTOS -->
+    <div class="gallery-pictime" id="galeria">
+        
+        <div class="item"><a href="fotos/alta-resolucion/foto1.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto1.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto2.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto2.jpg" alt="Vértice Digital"></a></div>
+<!-- EJEMPLO 3: VIDEO DE YOUTUBE -->
+        <div class="item">
+            <!-- Solo pones el link de YouTube en el href -->
+            <a href="https://www.youtube.com/watch?v=OszOM3BektU" class="glightbox" data-gallery="portafolio">
+                <!-- Como miniatura, pones una foto de portada de tu video -->
+                <img src="fotos/miniaturas/portada-video.jpg" alt="Ver Video Cinematografía">
+            </a>
+        </div>
+        <div class="item"><a href="fotos/alta-resolucion/foto3.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto3.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto4.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto4.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto5.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto5.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto6.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto6.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto7.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto7.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto8.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto8.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto9.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto9.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto10.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto10.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto11.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto11.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto12.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto12.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto13.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto13.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto14.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto14.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto15.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto15.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto16.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto16.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto17.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto17.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto18.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto18.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto19.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto19.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto20.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto20.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto21.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto21.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto22.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto22.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto23.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto23.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto24.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto24.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto25.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto25.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto26.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto26.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto27.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto27.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto28.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto28.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto29.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto29.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto30.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto30.jpg" alt="Vértice Digital"></a></div>
+
+    </div>
+
+    <!-- LIBRERÍA GLIGHTBOX Y SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        // Activar el zoom y la galería
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true
+        });
+
+        // Lógica del Botón Mezclar
+        document.getElementById('btn-mezclar').addEventListener('click', function() {
+            const galeria = document.getElementById('galeria');
+            const items = Array.from(galeria.querySelectorAll('.item'));
+            
+            galeria.style.opacity = '0';
+            
+            setTimeout(() => {
+                items.sort(() => Math.random() - 0.5);
+                items.forEach(item => galeria.appendChild(item));
+                galeria.style.opacity = '1';
+                galeria.style.transition = 'opacity 0.4s ease';
+            }, 200);
+        });
+    </script>
+</body>
+</html>
