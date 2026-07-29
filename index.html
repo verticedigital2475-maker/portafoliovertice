@@ -119,6 +119,13 @@
         .gslide:nth-child(4n+2).current .gslide-image img { animation: panLeft 15s ease-in-out infinite alternate; }
         .gslide:nth-child(4n+3).current .gslide-image img { animation: slowZoomOut 15s ease-in-out infinite alternate; }
         .gslide:nth-child(4n+4).current .gslide-image img { animation: panRight 15s ease-in-out infinite alternate; }
+
+        /* ========================================================
+   TRANSICIÓN MÁS LENTA PARA EL SLIDESHOW (Fundido suave)
+   ======================================================== */
+.gfadeIn, .gfadeOut, .gslideInPrev, .gslideInNext, .gslideOutPrev, .gslideOutNext {
+    animation-duration: 1.5s !important;
+}
     </style>
 </head>
 <body>
@@ -205,7 +212,7 @@
             // Cambiar foto cada 4 segundos
             intervaloSlideshow = setInterval(() => {
                 lightbox.nextSlide();
-            }, 4000); 
+            }, 6000); 
         });
 
         // Detener música y slideshow al cerrar la foto
