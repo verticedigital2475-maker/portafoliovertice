@@ -114,11 +114,11 @@
             100% { transform: scale(1.15) translateX(2%); }
         }
 
-        /* Aplicamos la animación SOLO a la foto abierta (.current) alternando efectos */
-        .gslide:nth-child(4n+1).current .gslide-image img { animation: slowZoomIn 15s ease-in-out infinite alternate; }
-        .gslide:nth-child(4n+2).current .gslide-image img { animation: panLeft 15s ease-in-out infinite alternate; }
-        .gslide:nth-child(4n+3).current .gslide-image img { animation: slowZoomOut 15s ease-in-out infinite alternate; }
-        .gslide:nth-child(4n+4).current .gslide-image img { animation: panRight 15s ease-in-out infinite alternate; }
+        /* Aplicamos la animación de forma continua para evitar saltos en la transición */
+        .gslide:nth-child(4n+1) .gslide-image img { animation: slowZoomIn 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+2) .gslide-image img { animation: panLeft 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+3) .gslide-image img { animation: slowZoomOut 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+4) .gslide-image img { animation: panRight 15s ease-in-out infinite alternate; }
 
         /* ========================================================
    TRANSICIÓN MÁS LENTA PARA EL SLIDESHOW (Fundido suave)
@@ -199,29 +199,60 @@
         });
 
         // ==========================================
-        // LÓGICA DEL SLIDESHOW CON MÚSICA
+        // LÓGICA DEL SLIDESHOW CON MÚSICA (ACTUALIZADA)
         // ==========================================
         const btnSlideshow = document.getElementById('btn-slideshow');
         const musicaFondo = document.getElementById('musica-fondo');
         let intervaloSlideshow;
+        let indexActual = 0; 
+
+        // 1. Rastrear en qué foto exacta estamos en todo momento
+        lightbox.on('slide_changed', ({ current }) => {
+            indexActual = current.index;
+        });
 
         btnSlideshow.addEventListener('click', () => {
-            musicaFondo.play(); // Reproducir la canción
-            lightbox.openAt(0); // Abrir la primera foto
+            musicaFondo.play();
+            
+            // Obtener todos los elementos de la galería tal como los lee GLightbox
+            const elementos = lightbox.elements;
+            let inicio = 0;
+            
+            // 2. Si el cliente le da click al Slideshow, pero el primer elemento 
+            // de la galería es un video, nos lo saltamos para empezar en una foto.
+            while (elementos[inicio] && (elementos[inicio].href.includes('youtube') || elementos[inicio].href.includes('.mp4'))) {
+                inicio++;
+            }
+            
+            lightbox.openAt(inicio);
 
-            // Cambiar foto cada 4 segundos
+            // 3. Cambiar foto cada 6 segundos
             intervaloSlideshow = setInterval(() => {
-                lightbox.nextSlide();
+                let siguienteIndex = indexActual + 1;
+                
+                // Si llegamos al final de la galería, reiniciamos desde el principio
+                if (siguienteIndex >= elementos.length) siguienteIndex = 0;
+                
+                // MAGIA: Si el elemento que sigue es un video, nos lo saltamos
+                while (elementos[siguienteIndex].href.includes('youtube') || 
+                       elementos[siguienteIndex].href.includes('.mp4') || 
+                       elementos[siguienteIndex].href.includes('vimeo')) {
+                    
+                    siguienteIndex++; // Brincamos al siguiente
+                    if (siguienteIndex >= elementos.length) siguienteIndex = 0;
+                }
+                
+                // Avanzamos a la foto segura
+                lightbox.goToSlide(siguienteIndex);
             }, 6000); 
         });
 
-        // Detener música y slideshow al cerrar la foto
+        // 4. Detener todo al cerrar
         lightbox.on('close', () => {
             musicaFondo.pause();
             musicaFondo.currentTime = 0;
             clearInterval(intervaloSlideshow);
-        });        
-
+        });
         // ==========================================
         // LÓGICA DEL BOTÓN MEZCLAR
         // ==========================================
