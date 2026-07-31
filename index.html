@@ -64,12 +64,18 @@
         <p>Selecciona una categoría para ver nuestro portafolio</p>
     
     <div class="menu-container">
-        <!-- Estos enlaces apuntan mágicamente a tus nuevas carpetas -->
-        <a href="bodas/" class="menu-btn">💍 Bodas</a>
-        <a href="xv/" class="menu-btn">👑 XV Años</a>
-        <a href="ninos/" class="menu-btn">🧸 Eventos Infantiles</a>
-        <a href="eventos/" class="menu-btn">🎉 Eventos en General</a>
-    </div>
+    <a href="bodas/" class="menu-btn">💍 Bodas</a>
+    <button class="btn-copiar" onclick="copiarEnlaceFijo('/bodas/')">Copiar link 🔗</button>
+
+    <a href="xv/" class="menu-btn">👑 XV Años</a>
+    <button class="btn-copiar" onclick="copiarEnlaceFijo('/xv/')">Copiar link 🔗</button>
+
+    <a href="ninos/" class="menu-btn">🧸 Eventos Infantiles</a>
+    <button class="btn-copiar" onclick="copiarEnlaceFijo('/ninos/')">Copiar link 🔗</button>
+
+    <a href="eventos/" class="menu-btn">🎉 Eventos en General</a>
+    <button class="btn-copiar" onclick="copiarEnlaceFijo('/eventos/')">Copiar link 🔗</button>
+</div>
 <script src="logos.js"></script>
 <script>
     // Carga de tus logos en base64
