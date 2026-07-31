@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio Eventos | Vértice Digital</title>
+
+    <!-- ETIQUETAS PARA WHATSAPP (Open Graph) -->
+    <meta property="og:title" content="📷 Portafolio de Eventos | Vértice Digital">
+    <meta property="og:description" content="Conoce nuestro trabajo en Bodas, XV Años y Eventos Infantiles. Capturando tus mejores momentos.">
+    <!-- Aquí actualizamos la ruta para que busque dentro de la carpeta eventos -->
+    <meta property="og:image" content="https://portafoliovertice.vercel.app/eventos/banner-eventos.jpg">
+    <meta property="og:url" content="https://portafoliovertice.vercel.app/eventos/">
+
+    <!-- Librería GLightbox (Para el zoom) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+
+    <!-- ESTILOS CSS -->
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        header {
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        /* Botones Mezclar y Slideshow */
+        #btn-mezclar, #btn-slideshow {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px 30px 5px;
+            transition: background 0.3s;
+        }
+
+        #btn-mezclar:hover, #btn-slideshow:hover {
+            background-color: #555;
+        }
+
+        /* DISEÑO DE COLUMNAS ESTILO PICTIME */
+        .gallery-pictime {
+            column-count: 3;
+            column-gap: 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .item {
+            break-inside: avoid;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+
+        .item:hover img {
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 768px) {
+            .gallery-pictime {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .gallery-pictime {
+                column-count: 1;
+            }
+        }
+
+        /* EFECTOS KEN BURNS */
+        @keyframes slowZoomIn {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.15); } 
+        }
+        @keyframes slowZoomOut {
+            0% { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        @keyframes panLeft {
+            0% { transform: scale(1.15) translateX(2%); }
+            100% { transform: scale(1.15) translateX(-2%); } 
+        }
+        @keyframes panRight {
+            0% { transform: scale(1.15) translateX(-2%); }
+            100% { transform: scale(1.15) translateX(2%); }
+        }
+
+        .gslide:nth-child(4n+1) .gslide-image img { animation: slowZoomIn 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+2) .gslide-image img { animation: panLeft 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+3) .gslide-image img { animation: slowZoomOut 15s ease-in-out infinite alternate; }
+        .gslide:nth-child(4n+4) .gslide-image img { animation: panRight 15s ease-in-out infinite alternate; }
+
+        /* TRANSICIÓN SLIDESHOW */
+        .gfadeIn, .gfadeOut, .gslideInPrev, .gslideInNext, .gslideOutPrev, .gslideOutNext {
+            animation-duration: 1.5s !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>FOTOS Vértice Digital</h1>
+        <p>PORTAFOLIO EVENTOS</p>
+    </header>
+
+    <div>
+        <button id="btn-mezclar">Mezclar Fotos 🔀</button>
+        <button id="btn-slideshow">Reproducir Slideshow 🎵</button>
+    </div>
+
+    <!-- Recuerda subir un archivo llamado cancion-bodas.mp3 a la carpeta "eventos" -->
+    <audio id="musica-fondo" loop>
+        <source src="cancion-bodas.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="gallery-pictime" id="galeria">
+        
+        <!-- ========================================== -->
+        <!-- ZONA DE VIDEOS (BODAS, XV, NIÑOS)          -->
+        <!-- ========================================== -->
+        
+        <!-- VIDEO 1: BODAS -->
+        <div class="item">
+            <!-- Cambia "TU_ENLACE_AQUI" por el link real de YouTube -->
+            <a href="https://www.youtube.com/watch?v=iE6U-a11Css" class="glightbox" data-gallery="portafolio">
+                <img src="fotos/miniaturas/portada-video-bodas.jpg" alt="Ver Video de Bodas">
+            </a>
+        </div>
+
+        <!-- VIDEO 2: XV AÑOS -->
+        <div class="item">
+            <a href="https://www.youtube.com/watch?v=OszOM3BektU" class="glightbox" data-gallery="portafolio">
+                <img src="fotos/miniaturas/portada-video-xv.jpg" alt="Ver Video de XV Años">
+            </a>
+        </div>
+
+        <!-- VIDEO 3: NIÑOS -->
+        <div class="item">
+            <a href="https://www.youtube.com/watch?v=x_iRVDhF_Ro" class="glightbox" data-gallery="portafolio">
+                <img src="fotos/miniaturas/portada-video-ninos.jpg" alt="Ver Video de Eventos Infantiles">
+            </a>
+        </div>
+        
+        <!-- ========================================== -->
+        <!-- ZONA DE FOTOGRAFÍAS                        -->
+        <!-- ========================================== -->
+
+        <!-- Como el index ya está dentro de la carpeta eventos, las rutas src="fotos/..." funcionan perfecto -->
+        <div class="item"><a href="fotos/alta-resolucion/foto1.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto1.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto2.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto2.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto3.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto3.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto4.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto4.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto5.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto5.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto6.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto6.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto7.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto7.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto8.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto8.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto9.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto9.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto10.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto10.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto11.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto1.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto12.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto2.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto13.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto3.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto14.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto4.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto15.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto5.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto16.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto6.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto17.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto7.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto18.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto8.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto19.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto9.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto20.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto10.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto21.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto1.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto22.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto2.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto23.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto3.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto24.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto4.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto25.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto5.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto26.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto6.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto27.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto7.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto28.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto8.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto29.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto9.jpg" alt="Vértice Digital"></a></div>
+        <div class="item"><a href="fotos/alta-resolucion/foto30.jpg" class="glightbox" data-gallery="portafolio"><img src="fotos/miniaturas/foto10.jpg" alt="Vértice Digital"></a></div>
+        <!-- ... Agrega el resto de tus fotos (foto11 a foto30) copiando la línea anterior ... -->
+        
+    </div>
+
+    <!-- LIBRERÍA GLIGHTBOX Y SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script>
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            slideEffect: 'fade', 
+            touchNavigation: true,
+            loop: true
+        });
+
+        const btnSlideshow = document.getElementById('btn-slideshow');
+        const musicaFondo = document.getElementById('musica-fondo');
+        let intervaloSlideshow;
+        let indexActual = 0; 
+
+        lightbox.on('slide_changed', ({ current }) => {
+            indexActual = current.index;
+        });
+
+        btnSlideshow.addEventListener('click', () => {
+            musicaFondo.play();
+            
+            const elementos = lightbox.elements;
+            let inicio = 0;
+            
+            // Si hay videos al principio, los saltamos
+            while (elementos[inicio] && (elementos[inicio].href.includes('youtube') || elementos[inicio].href.includes('.mp4'))) {
+                inicio++;
+            }
+            
+            lightbox.openAt(inicio);
+
+            intervaloSlideshow = setInterval(() => {
+                let siguienteIndex = indexActual + 1;
+                
+                if (siguienteIndex >= elementos.length) siguienteIndex = 0;
+                
+                // Saltamos cualquier video durante el pase de diapositivas
+                while (elementos[siguienteIndex].href.includes('youtube') || 
+                       elementos[siguienteIndex].href.includes('.mp4') || 
+                       elementos[siguienteIndex].href.includes('vimeo')) {
+                    
+                    siguienteIndex++; 
+                    if (siguienteIndex >= elementos.length) siguienteIndex = 0;
+                }
+                
+                lightbox.goToSlide(siguienteIndex);
+            }, 6000); 
+        });
+
+        lightbox.on('close', () => {
+            musicaFondo.pause();
+            musicaFondo.currentTime = 0;
+            clearInterval(intervaloSlideshow);
+        });
+
+        document.getElementById('btn-mezclar').addEventListener('click', function() {
+            const galeria = document.getElementById('galeria');
+            const items = Array.from(galeria.querySelectorAll('.item'));
+            
+            galeria.style.opacity = '0';
+            
+            setTimeout(() => {
+                items.sort(() => Math.random() - 0.5);
+                items.forEach(item => galeria.appendChild(item));
+                galeria.style.opacity = '1';
+                galeria.style.transition = 'opacity 0.4s ease';
+            }, 200);
+        });
+        
+    </script>
+</body>
+</html>
