@@ -258,8 +258,19 @@
                 galeria.style.opacity = '1';
                 galeria.style.transition = 'opacity 0.4s ease';
             }, 200);
-        });
-        
+        }); // Aquí termina el código que ya tenías
+
+        function copiarEnlaceSeccion() {
+            // Esto toma automáticamente la URL exacta en la que estás
+            const urlActual = window.location.href; 
+            
+            navigator.clipboard.writeText(urlActual).then(() => {
+                // Alerta para avisarte que se copió con éxito
+                alert("¡Enlace copiado! Listo para enviarse por WhatsApp.");
+            }).catch(err => {
+                console.error('Error al copiar el enlace: ', err);
+            });
+        }
     </script>
 </body>
 </html>
