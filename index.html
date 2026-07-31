@@ -105,6 +105,13 @@
             console.error('Error al copiar: ', err);
         });
     }
+    // Función para los botones de cada categoría
+    function copiarEnlaceFijo(ruta) {
+        const linkCompleto = "https://portafoliovertice.vercel.app" + ruta;
+        navigator.clipboard.writeText(linkCompleto).then(() => {
+            alert("¡Link de la categoría copiado! Listo para WhatsApp. 🔗");
+        }).catch(err => console.error('Error al copiar: ', err));
+    }
 </script>
     
   </body>
