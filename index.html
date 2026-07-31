@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolios | Vértice Digital</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 50px 20px;
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            font-weight: normal;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+        }
+        p {
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .menu-btn {
+            background-color: #333;
+            color: white;
+            text-decoration: none;
+            padding: 25px;
+            border-radius: 8px;
+            font-size: 18px;
+            transition: background 0.3s, transform 0.2s;
+            display: block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .menu-btn:hover {
+            background-color: #555;
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>VÉRTICE DIGITAL</h1>
+    <p>Selecciona una categoría para ver nuestro portafolio</p>
+    
+    <div class="menu-container">
+        <!-- Estos enlaces apuntan mágicamente a tus nuevas carpetas -->
+        <a href="bodas/" class="menu-btn">💍 Bodas</a>
+        <a href="xv/" class="menu-btn">👑 XV Años</a>
+        <a href="ninos/" class="menu-btn">🧸 Eventos Infantiles</a>
+        <a href="eventos/" class="menu-btn">🎉 Eventos en General</a>
+    </div>
+
+</body>
+</html>
