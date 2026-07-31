@@ -47,9 +47,12 @@
     </style>
 </head>
 <body>
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 20px;">
+    <img id="img-camara" alt="Ícono Vértice Digital" style="width: 80px; vertical-align: middle;">
+    <img id="img-texto" alt="Texto Vértice Digital" style="width: 200px; vertical-align: middle; margin-left: 10px;">
+</div>
     
-    <h1>VÉRTICE DIGITAL</h1>
-    <p>Selecciona una categoría para ver nuestro portafolio</p>
+        <p>Selecciona una categoría para ver nuestro portafolio</p>
     
     <div class="menu-container">
         <!-- Estos enlaces apuntan mágicamente a tus nuevas carpetas -->
@@ -58,6 +61,10 @@
         <a href="ninos/" class="menu-btn">🧸 Eventos Infantiles</a>
         <a href="eventos/" class="menu-btn">🎉 Eventos en General</a>
     </div>
-
+<script src="logos.js"></script>
+<script>
+    document.getElementById('img-camara').src = logoCamara;
+    document.getElementById('img-texto').src = logoTexto;
+</script>
 </body>
 </html>
